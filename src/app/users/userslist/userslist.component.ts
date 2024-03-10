@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../userService/user.service';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { ToastService } from 'src/app/services/toast.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class UserslistComponent implements OnInit {
   p: number = 1;
 
 
-  constructor(private us:UserService){}
+  constructor(private us:UserService,private tost:ToastService){}
 
 
   ngOnInit():void{
@@ -46,7 +47,8 @@ export class UserslistComponent implements OnInit {
 
   removeUser(id:any){
       this.us.deleteUser(id).subscribe((result:any)=>{
-        alert('user removed')
+        this.tost.showError(" removed")
+
         this.getUser()
       })
   }

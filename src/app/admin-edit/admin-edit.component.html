@@ -5,9 +5,9 @@
 
 <h3 class="text-center mt-3" style="color:brown">Edit Profile</h3>
 <div *ngIf="!editClicked" id="profile" class="text-center p-3">
-    <img class="rounded-end-circle "
+    <img class=" "
         [src]="profilePic"
-        alt="" width="120px">
+        alt="" width="120px" style="border-radius: 50%; height: 100px; width: 100px;">
     <button (click)="editClick()" class="btn btn-outline-danger w-75 mt-5">Ediit</button>
 </div>
 
@@ -15,7 +15,7 @@
     <label for="p1">
         
         <input (change)="getFile($event)" type="file" id="p1" style="display: none;">
-        <img class="rounded-end-circle" [src]="profilePic" alt="" width="120px">
+        <img class="" [src]="profilePic" alt="" width="120px" style="border-radius: 50%; height: 100px; width: 100px;">
 
     </label>
 

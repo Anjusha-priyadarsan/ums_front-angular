@@ -14,7 +14,7 @@ export class ToastService {
   }
 
   showError(msg:any) {
-    this.toastr.error('Error', msg);
+    this.toastr.error('', msg);
   }
   showWarning(msg:any) {
     this.toastr.warning('Warning', msg);
