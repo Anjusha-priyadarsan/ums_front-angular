@@ -1,0 +1,63 @@
+<div class="row">
+     <div *ngIf="menuSlide" class="col-lg-2  " id="nav">
+           <div id="links">
+            <hr>
+                <a href="" >
+                    <div><i class="fa-solid fa-house" style="color: #FFD43B;"></i>&nbsp;&nbsp;Home</div>
+                </a>
+             <hr>
+                <a routerLink="/users">
+                    <div><i class="fa-solid fa-users" style="color: #FFD43B;"></i>&nbsp;&nbsp;Users</div>
+                </a>
+            <hr>
+                
+<a href="">
+                        <div (click)="logout()"><i class="fa-solid fa-right-from-bracket" style="color: #FFD43B;"></i>&nbsp;&nbsp;Logout</div>
+    
+</a>                
+            <hr>
+           </div>
+     </div>
+     <div class="col-lg-7 p-2">
+        <div data-aos="flip-left" id="banner1" class= "m-2 rounded shadow-lg d-flex align-items-center"  >
+            <i (click)="menuClick()" class="fa-solid fa-bars fa-2x ms-5 me-5" style="color:rgb(255, 166, 0);"></i>
+            <h2 style="color:rgb(255, 166, 0);">Welcome {{AdminUserName}}</h2>
+
+        </div>
+        <div class="row m-2">
+            <div class="col-lg-4 p-2 shadow-lg border rounded  ">
+                <!-- calender -->
+                <h4 class="m-4 fw-bold text-center text-danger">Calender</h4>
+                <div clas="m-3 p-3">
+                    <mat-card class="demo-inline-calendar-card">
+                        <mat-calendar [(selected)]="selected"></mat-calendar>
+                      </mat-card>
+                </div>
+
+            </div>
+            <div class="col-lg-8 shadow-lg border rounded" >
+                <!-- pychart-->
+                <div>
+                    <app-chart>
+
+                    </app-chart>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+     <div class="col-lg-3 border rounded shadow-lg  mt-3">
+        <!-- edit profile -->
+        <app-admin-edit [data]="date" (onAdminChange)="updatedAdmin($event)"></app-admin-edit>
+         <div  id="banner2" class= "m-2 rounded shadow-lg d-flex align-items-center p-5" >
+            <!-- <i class="fa-solid fa-bars fa-2x ms-5 me-5" style="color:rgb(255, 166, 0);"></i> -->
+            <span style="color:rgb(255, 166, 0);">Total Number of Users : {{employeCount}}</span>
+
+        </div>
+
+
+     </div>
+
+
+</div>

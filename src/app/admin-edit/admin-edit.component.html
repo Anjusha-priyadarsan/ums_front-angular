@@ -1,0 +1,38 @@
+<br><br>
+
+<h2 class="m-2">{{data |  date : 'medium'}}</h2>
+
+
+<h3 class="text-center mt-3" style="color:brown">Edit Profile</h3>
+<div *ngIf="!editClicked" id="profile" class="text-center p-3">
+    <img class="rounded-end-circle "
+        [src]="profilePic"
+        alt="" width="120px">
+    <button (click)="editClick()" class="btn btn-outline-danger w-75 mt-5">Ediit</button>
+</div>
+
+<div *ngIf="editClicked" class="text-center p-3">
+    <label for="p1">
+        
+        <input (change)="getFile($event)" type="file" id="p1" style="display: none;">
+        <img class="rounded-end-circle" [src]="profilePic" alt="" width="120px">
+
+    </label>
+
+    <div class="form-floating mb-3 mt-3">
+        <input [(ngModel)]="admin.email" type="text" class="form-control" id="email1" name="email12" placeholder="name@example.com"
+>       
+ <label for="floatingInput">Email address</label>
+      </div>
+
+    <div class="form-floating ">
+        <input [(ngModel)]="admin.password" type="text" class="form-control mt-3" id="pswd1" name="pswd123" placeholder="Password"
+          >
+        <label for="floatingPassword">Password</label>
+      </div>
+      <button (click)="editData()" class="btn btn-outline-danger w-100 mt-3">Update</button>
+      <button (click)="cancel()" class="btn btn-outline-warning w-100 mt-3">Cancel</button>
+
+
+
+</div>

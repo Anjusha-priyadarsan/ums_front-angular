@@ -1,0 +1,51 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-6 p-5">
+            <div class="rounded shadow p-3">
+                <h3 class="text-center"><span style="color: red;">A</span>dd <span
+                        style="color:rgb(156, 242, 26) ;">N</span>ew<span style="color: yellow;"> U</span>ser</h3>
+                <form (ngSubmit)="addUser()" class="form-floating" [formGroup]="addUserFormModel">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control mt-3" id="name" placeholder="Name"
+                            formControlName="name">
+                        <label for="floatingInput">User Name</label>
+                    </div>
+                    <!-- error message -->
+                    <div *ngIf="addUserFormModel.get('name')?.errors&&addUserFormModel.get('name')?.touched">
+                        <p class="text-danger">Name inclde only letters and space</p>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="email" placeholder="Email" formControlName="email">
+                        <label for="floatingPassword">Email</label>
+                    </div>
+                     <!-- error message -->
+                     <div *ngIf="addUserFormModel.get('email')?.errors&&addUserFormModel.get('email')?.touched">
+                        <p class="text-danger">Please enter a valid email </p>
+                    </div>
+                    <!-- Example split danger button -->
+                    <div class=" w-100  mt-3">
+                        <select  formControlName="status" class="w-100 rounded" name="status1" id="status"
+                            style="background-color: rgb(141, 225, 15);">
+                            <option value="" disabled selected hidden>Status</option>
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+
+
+                        </select>
+                    </div>
+                    
+
+                    <button type="submit" class="btn btn-danger w-100 mt-5">add </button>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-lg-6 p-5">
+            <img class="img-fluid" src="https://i.postimg.cc/BQ9Vg8d0/photo-attractive-cool-man-guy-funky-look-direct-finger-empty-space-advising-sale-shopping-wear-green.avif"
+                alt="">
+        </div>
+
+    </div>
+
+</div>

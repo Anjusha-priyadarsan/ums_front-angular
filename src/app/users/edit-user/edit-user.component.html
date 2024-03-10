@@ -1,0 +1,49 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-6 p-5">
+            <div class="rounded shadow p-3">
+                <h3 class="text-center"><span style="color: red;">E</span>dit <span style="color: rgb(156, 242, 26);"> U</span>ser</h3>
+                <form (ngSubmit)="updateData()"  class="form-floating" >
+                    <div class="form-floating mb-3">
+                        <input [(ngModel)]="userData.name" type="text" class="form-control mt-3" id="name1" placeholder="Name" name="name"
+                           >
+                        <label for="floatingInput">User Name</label>
+                    </div>
+                    <!-- error message -->
+                    <!-- <div >
+                        <p class="text-danger">Name inclde only letters and space</p>
+                    </div> -->
+                    <div class="form-floating">
+                        <input [(ngModel)]="userData.email" type="text" class="form-control" id="email1" placeholder="Email" name="email" >
+                        <label for="floatingPassword">Email</label>
+                    </div>
+                     <!-- error message -->
+                     <!-- <div >
+                        <p class="text-danger">Please enter a valid email </p>
+                    </div> -->
+                    <!-- Example split danger button -->
+                    <div class=" w-100  mt-3">
+                        <select [(ngModel)]="userData.status"   class="w-100 rounded" name="status1" id="status"
+                            style="background-color: rgb(141, 225, 15);">
+                            <option value="" disabled selected hidden>Status</option>
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+
+
+                        </select>
+                    </div>
+                    
+
+                    <button type="submit" class="btn btn-danger w-100 mt-5">Update</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="col-lg-6 p-5">
+            <img class="img-fluid" src="https://i.postimg.cc/prMh3FTs/220-F-316724643-wxdsy-Ae8b-Dl-At-Eq-Vr-RSi8-Hh-MXSi-Nd-ZXP.jpg" width="600px" height="700px">
+        </div>
+
+    </div>
+
+</div>

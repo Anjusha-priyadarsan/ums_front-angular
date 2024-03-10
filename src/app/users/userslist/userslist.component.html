@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-lg-2  " id="nav">
+    <div id="links" class="text-center">
+      <hr>
+      <button type="button" class="btn btn-primary w-75 " style="font-size: 13px;"><a routerLink="add-user">Add New User</a> <i
+          class="fa-solid fa-user-plus" style="color: #fafafa;"></i></button>
+      <hr>
+      <button (click)="convertPdf()" type="button" class="btn btn-warning w-75 text-light">Export as <i
+          class="fa-solid fa-file-pdf" style="color: #ffffff;"></i></button>
+      <hr>
+      <button (click)="changeSortData()" type="button" class="btn btn-success w-75 text-light">Sort name&nbsp;&nbsp;<i class="fa-solid fa-sort" style="color: #fbfcfe;"></i> </button>
+    <hr>
+      <!-- Example single danger button -->
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary dropdown-toggle w-100" data-bs-toggle="dropdown"
+          aria-expanded="false" style="width: 130px;">
+          Filter
+        </button>
+        <ul class="dropdown-menu">
+          <li><button (click)="changeFilterData('1')" class="dropdown-item" href="#">Active</button></li>
+          <li><button (click)="changeFilterData('0')" class="dropdown-item" href="#">InActive</button></li>
+          <li><button (click)="changeFilterData('')" class="dropdown-item" href="#">remove filter</button></li>
+
+        </ul>
+      </div>
+      <hr>
+      
+    </div>
+  </div>
+  <div class="col-lg-10  ">
+
+    <div class="row text-danger text-center fw-bold mt-5">
+      <h1>List Of All Employees</h1>
+
+    </div>
+    <div class="row text-center p-5">
+      <div class="input-group mb-3">
+        <span class="input-group-text"><i class="fa-solid fa-magnifying-glass" style="color: #51261f;"></i></span>
+        <div class="form-floating">
+          <input [(ngModel)]="userName" type="text" name="name" class="form-control" id="floatingInputGroup1"
+            placeholder="search by employee name">
+          <label for="floatingInputGroup1">Username</label>
+        </div>
+      </div>
+
+    </div>
+    <div class="row p-4">
+
+      <table class="table table-danger">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col"> UserName</th>
+            <th scope="col">Email</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of userList | search : userName : 'name' | filter:filterData | sort:sortData  | paginate: { itemsPerPage: 5, currentPage: p } ">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td><i [ngClass]="item.status==1?'text-success':'text-danger'"
+                class="fa-solid fa-circle "></i>&nbsp;&nbsp;{{item.status==0?'Inactive':'Active'}}</td>
+            <td>
+              <a routerLink="edit-user/{{item.id}}" class="btn btn-warning"><i class="fa-solid fa-user-pen"
+                  style="color: #ffffff;"></i></a>
+              <button (click)="removeUser(item.id)" type="button" class="btn btn-danger m-2"><i
+                  class="fa-solid fa-user-xmark" style="color: #fafcff;"></i></button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+<div class="text-center">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  
+</div>
+    </div>
+
+
+  </div>
+
+
+</div>
